@@ -1,11 +1,16 @@
 import type { Page, Locator } from '@playwright/test';
 
+type Guests = {
+  adults: number,
+  children: number
+}
 export class SearchPage {
   private readonly destinationInput: Locator;
   private readonly checkInDate: Locator;
   private readonly checkOutDate: Locator;
   private readonly guestsSelector: Locator;
-  private readonly addGuestsStepper: Locator;
+  private readonly addAdultsGuestsStepper: Locator;
+  private readonly addChildrenGuestsStepper: Locator;
   private readonly saveSearchButton: Locator;
   
   constructor(public readonly page: Page) {
@@ -13,7 +18,8 @@ export class SearchPage {
     this.checkInDate = this.page.getByTestId('structured-search-input-field-split-dates-0');
     this.checkOutDate = this.page.getByTestId('structured-search-input-field-split-dates-1');
     this.guestsSelector = this.page.getByTestId('structured-search-input-field-guests-button');   
-    this.addGuestsStepper = this.page.getByTestId('stepper-adults-increase-button');
+    this.addAdultsGuestsStepper = this.page.getByTestId('stepper-adults-increase-button');
+    this.addChildrenGuestsStepper = this.page.getByTestId('stepper-children-increase-button');
     this.saveSearchButton = this.page.getByTestId('structured-search-input-search-button');
   }
 
@@ -34,9 +40,10 @@ export class SearchPage {
     await this.checkOutDate.press('Enter');
   }
 
-  async addGuests(guestAmount: number) { 
+  async addGuests(guests: Guests) { 
     this.guestsSelector.click();
-    await this.addGuestsStepper.click({clickCount: guestAmount});
+    await this.addAdultsGuestsStepper.click({clickCount: guests.adults});
+    await this.addChildrenGuestsStepper.click({clickCount: guests.children});
     await this.guestsSelector.press('Enter');
   }
   

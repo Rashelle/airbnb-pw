@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Rashelle/airbnb-pw#readme",
   "devDependencies": {
     "@playwright/test": "^1.42.1",
-    "@types/node": "^20.11.28"
+    "@types/node": "^20.11.28",
+    "moment": "^2.30.1"
   }
 }

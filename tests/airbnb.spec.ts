@@ -7,7 +7,7 @@
 
 import { test , expect } from './fixtures/searchPageFixture';
 import moment from 'moment';
-import { getDateTestId } from './test-utils';
+import { getConfirmationDateFormat, getDateTestId, getPickerDisplayDateFormat } from './test-utils';
 
 test('User should choose airbnb', async ({ searchPage, page }) => {
     // Navigation validation
@@ -21,11 +21,11 @@ test('User should choose airbnb', async ({ searchPage, page }) => {
     const endDate = moment().add(2, 'day');
 
     await searchPage.addDates([getDateTestId(startDate), getDateTestId(endDate)]);
-    await expect(page.getByTestId('structured-search-input-field-split-dates-0').getByText('Mar 21')).toBeVisible();
-    await expect(page.getByTestId('structured-search-input-field-split-dates-1').getByText('Mar 22')).toBeVisible();
+    await expect(page.getByTestId('structured-search-input-field-split-dates-0').getByText(getPickerDisplayDateFormat(startDate))).toBeVisible();
+    await expect(page.getByTestId('structured-search-input-field-split-dates-1').getByText(getPickerDisplayDateFormat(endDate))).toBeVisible();
 
-    await searchPage.addGuests(1);
-    await expect(page.getByText('1 Guest')).toBeVisible()
+    await searchPage.addGuests({adults: 2, children: 1});
+    await expect(page.getByText('2 Guest')).toBeVisible()
 
     await searchPage.saveSearch();
 
@@ -39,12 +39,12 @@ test('User should choose airbnb', async ({ searchPage, page }) => {
     await searchPage.closePopUp(confirmationPage);
 
     // Validate selection
-    await expect(confirmationPage.getByTestId('change-dates-checkIn')).toHaveText('3/21/2024');
-    await expect(confirmationPage.getByTestId('change-dates-checkOut')).toHaveText('3/22/2024');
-    await expect(confirmationPage.locator('#GuestPicker-book_it-trigger span').filter({hasText: '1 Guest'})).toBeVisible();
+    await expect(confirmationPage.getByTestId('change-dates-checkIn')).toHaveText(getConfirmationDateFormat(startDate));
+    await expect(confirmationPage.getByTestId('change-dates-checkOut')).toHaveText(getConfirmationDateFormat(endDate));
+    await expect(confirmationPage.locator('#GuestPicker-book_it-trigger span').filter({hasText: '2 Guest'})).toBeVisible();
 
-    // // Change selection
-    // // await confirmationPage.getByLabel('GuestPicker-book_it-trigger').click();
+    // Change selection
+    // await confirmationPage.getByLabel('GuestPicker-book_it-trigger').click();
     // await expect(page.getByRole('button', { name: 'Guest' })).toBeVisible();
     // // await confirmationPage.mouse.move(0, -100);
     // await confirmationPage.getByTestId('uestPicker-book_it-form-children-stepper-increase-button').click();
