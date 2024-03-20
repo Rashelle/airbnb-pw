@@ -6,6 +6,8 @@
 // Reserve and Validate: Click the "Reserve" button, then confirm that the page URL has changed to a reservation URL and includes the accurate number of adults.
 
 import { test , expect } from './fixtures/searchPageFixture';
+import moment from 'moment';
+import { getDateTestId } from './test-utils';
 
 test('User should choose airbnb', async ({ searchPage, page }) => {
     // Navigation validation
@@ -15,7 +17,10 @@ test('User should choose airbnb', async ({ searchPage, page }) => {
     await searchPage.addDestination('Paris');
     await expect(page.getByPlaceholder('Search destinations')).toHaveValue('Paris');
 
-    await searchPage.addDates(['calendar-day-03/21/2024', 'calendar-day-03/22/2024']);
+    const startDate = moment().add(1, 'day');
+    const endDate = moment().add(2, 'day');
+
+    await searchPage.addDates([getDateTestId(startDate), getDateTestId(endDate)]);
     await expect(page.getByTestId('structured-search-input-field-split-dates-0').getByText('Mar 21')).toBeVisible();
     await expect(page.getByTestId('structured-search-input-field-split-dates-1').getByText('Mar 22')).toBeVisible();
 

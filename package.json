@@ -1,0 +1,29 @@
+{
+  "name": "airbnb-pw",
+  "version": "1.0.0",
+  "description": "airbnb test on top of playwright",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "fsevents": "^2.3.2",
+    "moment": "^2.30.1",
+    "playwright": "^1.42.1",
+    "playwright-core": "^1.42.1",
+    "undici-types": "^5.26.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rashelle/airbnb-pw.git"
+  },
+  "author": "Rachel Kosiborod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rashelle/airbnb-pw/issues"
+  },
+  "homepage": "https://github.com/Rashelle/airbnb-pw#readme"
+}
