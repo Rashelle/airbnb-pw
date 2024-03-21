@@ -1,0 +1,31 @@
+{
+  "name": "airbnb-pw",
+  "version": "1.0.0",
+  "description": "airbnb test on top of playwright",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm login && npm install",
+    "test": "npm test",
+    "test:e2e": "npm playwright test",
+    "test:e2e:ci": "npm playwright test --fuly-parallel",
+    "test:e2e:ui": "npm playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rashelle/airbnb-pw.git"
+  },
+  "author": "Rashelle Kosiborod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rashelle/airbnb-pw/issues"
+  },
+  "engines": {
+    "node": "20.9.0"
+  },
+  "homepage": "https://github.com/Rashelle/airbnb-pw#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.28",
+    "moment": "^2.30.1"
+  }
+}
