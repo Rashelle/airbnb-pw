@@ -64,7 +64,7 @@ $ npm test:e2e:ui
 Reports are attached to CI run, and can be downloaded as an artifact. 
 You could also use the GH pages linked to the repo to see reports. 
 
-## Reports 
+## CI 
 
 You can find github actions workflow that runs E2E's as part of commits that are made during the PR phase.
 
