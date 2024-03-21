@@ -21,15 +21,12 @@ jobs:
       matrix:
         shard: [1/2, 2/2]
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
-    - name: Install dependencies
-      run: npm ci
+    - uses: actions/checkout@v4
 
-    - name: Install Playwright browsers
-      run: npx playwright install --with-deps
+    - uses: actions/setup-node@v4
+
+    - name: Install dependencies
+      run: npm install
 
     - name: Run Playwright tests
       run: npx playwright test --shard ${{ matrix.shard }}
@@ -57,10 +54,10 @@ jobs:
       id: timestampid
       run: echo "timestamp=$(date --utc +%Y%m%d_%H%M%SZ)" >> "$GITHUB_OUTPUT" 
 
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+
     - name: Install dependencies
       run: npm ci
 
