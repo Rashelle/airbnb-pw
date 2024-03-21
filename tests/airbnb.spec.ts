@@ -38,7 +38,6 @@ test('User should choose airbnb', async ({ bookAirbnb, page }) => {
     await expect(confirmationPage.getByTestId('change-dates-checkOut')).toHaveText(getConfirmationDateFormat(END_DATE));
     await expect(confirmationPage.locator('#GuestPicker-book_it-trigger span').filter({hasText: `${sumGuestsAmount(TEST_DATA.guests)} Guest`})).toBeVisible();
 
-
     // Change guest selection
     await confirmationPage.locator('#GuestPicker-book_it-trigger').filter({hasText: 'Guest'}).click();
     await confirmationPage.getByTestId('GuestPicker-book_it-form-children-stepper-decrease-button').click({delay: 1});
