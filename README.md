@@ -26,9 +26,8 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
+  <a href="#download">Reports</a> •
+  <a href="#download">CI</a> •
   <a href="#license">License</a>
 </p>
 
@@ -64,6 +63,10 @@ $ npm test:e2e:ui
 
 Reports are attached to CI run, and can be downloaded as an artifact. 
 You could also use the GH pages linked to the repo to see reports. 
+
+## Reports 
+
+You can find github actions workflow that runs E2E's as part of commits that are made during the PR phase.
 
 ## License
 
