@@ -28,7 +28,7 @@ jobs:
       run: npm install
 
     - name: Run Playwright tests
-      run: npx playwright test --shard ${{ matrix.shard }}
+      run: npm test:e2e --shard ${{ matrix.shard }}
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: always()
@@ -58,7 +58,7 @@ jobs:
     - uses: actions/setup-node@v4
 
     - name: Install dependencies
-      run: npm ci
+      run: npm install
 
     # Download the reports uploaded previously to merge them and create one single html report
     - name: Download blob reports from GitHub Actions Artifacts
