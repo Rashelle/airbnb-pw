@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "test:e2e": "pnpm playwright test",
-    "test:e2e:ci": "pnpm playwright test --fuly-parallel"
+    "test:e2e": "npm playwright test",
+    "test:e2e:ci": "npm playwright test --fuly-parallel",
+    "test:e2e:ui": "npm playwright test --ui"
   },
   "repository": {
     "type": "git",

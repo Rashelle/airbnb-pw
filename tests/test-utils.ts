@@ -17,3 +17,7 @@ export function getConfirmationDateFormat(date: Moment) {
 
     return formattedDate;
 }
+
+export function sumGuestsAmount(guests: Record<string, number>){
+    return Object.values(guests).reduce((a, b) => a + b, 0);
+}
