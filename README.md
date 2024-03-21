@@ -32,9 +32,6 @@
   <a href="#license">License</a>
 </p>
 
-<iframe src="https://giphy.com/embed/ZBneoIyHhVoEmzsVwL" width="480" height="365" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/airbnb-transparent-host-airbnbhost-ZBneoIyHhVoEmzsVwL">via GIPHY</a></p>
-
-
 ## Key Features
 
 * Running on Playwright
