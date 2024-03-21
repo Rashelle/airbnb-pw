@@ -24,6 +24,9 @@ jobs:
 
     - uses: actions/setup-node@v4
 
+    - name: Login to npm
+      run: npm login --registry=https://npm.pkg.github.com 
+
     - name: Install dependencies
       run: npm install
 
